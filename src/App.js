@@ -12,12 +12,14 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const theme = createTheme();
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
@@ -80,8 +82,8 @@ function App() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
+                    <Button size="small">View</Button>
+                    <Button size="small">Edit</Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -89,7 +91,22 @@ function App() {
           </Grid>
         </Container>
       </main>
-    </>
+      {/* footer */}
+
+      <Box sx={{ p: 6 }} component="footer">
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="text.secondary"
+          component="p"
+        >
+          Something here to give the footer a purpose!
+        </Typography>
+      </Box>
+    </ThemeProvider>
   );
 }
 
